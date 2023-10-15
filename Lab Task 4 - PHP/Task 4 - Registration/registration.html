@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+  <body>
+    <form method="post" action="validation.php" enctype="">
+      <fieldset>
+        <legend>REGISTRATION</legend>
+        Name: <input type="text" name="name" value="" /> <br />
+        <hr />
+        Email: <input type="email" name="email" value="" /> <br />
+        <hr />
+        Username: <input type="text" name="username" value="" /> <br />
+        <hr />
+        Password: <input type="password" name="password" value="" /> <br />
+        <hr />
+        Confirm Password:
+        <input type="password" name="confirm_password" value="" /> <br />
+        <hr />
+        Gender:
+        <input type="radio" name="gender" value="male" /> Male
+        <input type="radio" name="gender" value="female" /> Female
+        <input type="radio" name="gender" value="other" /> Other <br />
+        <hr />
+        Date of Birth:
+        <input type="text" name="dob_dd" style="width: 30px" /> /
+        <input type="text" name="dob_mm" style="width: 30px" /> /
+        <input type="text" name="dob_yyyy" style="width: 50px" />
+        <span style="margin-left: 10px">(dd/mm/yyyy)</span>
+        <br />
+        <hr />
+        <input type="submit" name="submit" value="submit" />
+        <input type="reset" name="reset" value="Reset" />
+      </fieldset>
+    </form>
+  </body>
+</html>
