@@ -14,15 +14,13 @@ function showInventory() {
           <th>Blood Quantity</th>
         </tr>`;
 
-      let i = 0;
       for (let data of inventory) {
         output += `
             <tr>
-                <td>${inventory[i].bloodGroup}</td>
-                <td>${inventory[i].quantity}</td>
+                <td>${data.bloodGroup}</td>
+                <td>${data.quantity}</td>
             </tr>
         `;
-        i++;
       }
 
       result.innerHTML = output;
