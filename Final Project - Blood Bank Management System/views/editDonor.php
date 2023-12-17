@@ -25,50 +25,53 @@
     <div id="body">
         <br><br>
         <form action="../controllers/editDonorController.php" method="POST">
-        <table align="center">
+        <table width="100%">
             <tr>
+                <td width="30%">&nbsp;</td>
                 <td>
-                <h4>ID:</h4></td> 
-                <td><input type="text" name="id"  value="<?php echo $result['id']; ?>" required readonly /></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>First Name:</h4></td> 
-                <td><input type="text" name="fname"  value="<?php echo $result['fname']; ?>" placeholder="Enter Your First Name" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Last Name:</h4></td> 
-                <td><input type="text" name="lname" value="<?php echo $result['lname']; ?>" placeholder="Enter Your Last Name" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Password:</h4></td> 
-                <td><input type="password" name="password" value="<?php echo $result['password']; ?>" placeholder="Enter Your Password" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Confirm Password:</h4></td> 
-                <td><input type="password" name="cpassword" value="<?php echo $result['cpassword']; ?>" placeholder="Confirm Your Password" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Email:</h4></td> 
-                <td><input type="email" name="email" value="<?php echo $result['email']; ?>" placeholder="Enter Your Email" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Phone Number:</h4></td> 
-                <td><input type="text" name="phone" value="<?php echo $result['phone']; ?>" placeholder="Enter Your Number" required/></td>
-            </tr>
-            <tr>
-                <td>
-                <h4>Address:</h4></td> 
-                <td><textarea name="address"  cols="30" rows="5" required> <?php echo $result['address']; ?></textarea></td>
-            </tr>
-           
-            <tr>
-                <td><input type="Submit" name="update" value="Update"></td>
+                    <table align="center" width="100%">
+                        <tr>
+                            <td>
+                            <h4>ID:</h4></td> 
+                            <td><input type="text" name="id"  value="<?php echo $result['id']; ?>" required readonly /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>First Name:</h4></td> 
+                            <td><input type="text" name="name"  value="<?php echo $result['name']; ?>" placeholder="Enter Your Name" required/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>Password:</h4></td> 
+                            <td><input type="password" name="password" value="" placeholder="Enter Your Password" required/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>Confirm Password:</h4></td> 
+                            <td><input type="password" name="cpassword" value="<?php echo $result['cpassword']; ?>" placeholder="Confirm Your Password" required/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>Email:</h4></td> 
+                            <td><input type="email" name="email" value="<?php echo $result['email']; ?>" placeholder="Enter Your Email" required/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>Phone Number:</h4></td> 
+                            <td><input type="text" name="phone" value="<?php echo $result['mobileNumber']; ?>" placeholder="Enter Your Number" required/></td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <h4>Address:</h4></td> 
+                            <td><textarea name="address"  cols="30" rows="5" required> <?php echo $result['address']; ?></textarea></td>
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="Submit" name="update" value="Update" class="btn-alt"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="30%">&nbsp;</td>
             </tr>
         </table>
         </form>
