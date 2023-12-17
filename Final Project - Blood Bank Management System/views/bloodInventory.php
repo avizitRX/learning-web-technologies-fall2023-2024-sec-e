@@ -24,13 +24,14 @@
             type="button"
             id="btn"
             class="btn-alt"
-            value="Show Inventory"
+            value="Show Log"
             onclick="showInventory()"
           />
           <br /><br />
           <div class="find-donor-table">
           <table width="60%" border="1" id="result">
             <tr>
+              <th>Name</th>
               <th>Blood Group</th>
               <th>Blood Quantity</th>
             </tr>

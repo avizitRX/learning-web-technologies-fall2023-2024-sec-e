@@ -23,7 +23,7 @@
 
             &nbsp;&nbsp;
             <?php if(isset($_COOKIE['staffFlag'])) { ?>
-              <a href="bloodInventory.php">Blood Inventory</a>
+              <a href="bloodInventory.php">Inventory Log</a>
             <?php } ?>
 
             &nbsp;&nbsp;
