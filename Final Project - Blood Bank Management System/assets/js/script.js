@@ -73,20 +73,22 @@ function loginVD() {
 }
 
 function findDonor() {
-  let bloodGroup = document.getElementById("bloodGroup").value;
-  let location = document.getElementById("location").value;
+  let bloodGroup = document.getElementById("bloodGroup").value.trim();
+  let location = document.getElementById("location").value.trim();
   let result = document.getElementById("result");
 
-  if (bloodGroup.trim() === "" && location.trim() === "") {
+
+  if (bloodGroup === "" && location === "") {
     alert("Please fill out both blood group and location!");
     return;
   }
 
-  if (bloodGroup.trim() === "") {
+  if (bloodGroup === "") {
     alert("Please select a blood group!");
     return;
   }
-  if (location.trim() === "") {
+
+  if (location === "") {
     alert("Please enter a location!");
     return;
   }
@@ -95,10 +97,9 @@ function findDonor() {
   xhttp.open(
     "GET",
     "../controllers/findDonorController.php?bloodGroup=" +
-      bloodGroup +
-      "&" +
-      "location=" +
-      location,
+      encodeURIComponent(bloodGroup) +
+      "&location=" +
+      encodeURIComponent(location),
     true
   );
   xhttp.onreadystatechange = function () {
