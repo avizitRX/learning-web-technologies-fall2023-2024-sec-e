@@ -94,7 +94,35 @@ function findDonor() {
   );
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      result.innerHTML = this.responseText;
+      donors = JSON.parse(this.responseText);
+
+      let output = `
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Blood Group</th>
+        <th>Address</th>
+        <th>Availability</th>
+        <th>Contact Number</th>
+      </tr>
+      `;
+
+      for (let donor of donors) {
+        output += `
+        <tr>
+            <td>${donor.name}</td>
+            <td>${donor.age}</td>
+            <td>${donor.gender}</td>
+            <td>${donor.bloodGroup}</td>
+            <td>${donor.address}</td>
+            <td>${donor.availability}</td>
+            <td><a href="tel:${donor.mobileNumber}">${donor.mobileNumber}</a></td>
+        </tr>
+        `;
+      }
+
+      result.innerHTML = output;
     }
   };
   xhttp.send("bloodGroup=" + bloodGroup + "&" + "location=" + location);

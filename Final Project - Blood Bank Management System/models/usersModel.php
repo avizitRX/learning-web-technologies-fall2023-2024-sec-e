@@ -130,23 +130,30 @@
         $count = mysqli_num_rows($result);
 
         if ($count > 0) {
-            $output = '<tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Gender</th>
-            <th>Blood Group</th>
-            <th>Address</th>
-            <th>Availability</th>
-            <th>Contact Number</th>
-        </tr>';
-        
+            $donors = [];
+
             while($donor = mysqli_fetch_assoc($result)) {
-                $output .= "<tr><td>{$donor['name']}</td><td>{$donor['age']}</td><td>{$donor['gender']}</td><td>{$donor['bloodGroup']}</td><td>{$donor['address']}</td><td>{$donor['availability']}</td><td>{$donor['mobileNumber']}</td></tr>";
+                array_push($donors, $donor);
             }
 
-            echo $output;
+            echo json_encode($donors);
+        //     $output = '<tr>
+        //     <th>Name</th>
+        //     <th>Age</th>
+        //     <th>Gender</th>
+        //     <th>Blood Group</th>
+        //     <th>Address</th>
+        //     <th>Availability</th>
+        //     <th>Contact Number</th>
+        // </tr>';
+        
+        //     while($donor = mysqli_fetch_assoc($result)) {
+        //         $output .= "<tr><td>{$donor['name']}</td><td>{$donor['age']}</td><td>{$donor['gender']}</td><td>{$donor['bloodGroup']}</td><td>{$donor['address']}</td><td>{$donor['availability']}</td><td>{$donor['mobileNumber']}</td></tr>";
+        //     }
+
+        //     echo $output;
         } else {
-            return "Not Found!";
+            echo "Not Found!";
         }
     }
 
