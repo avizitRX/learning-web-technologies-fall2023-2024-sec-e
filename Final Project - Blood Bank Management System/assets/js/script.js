@@ -77,8 +77,17 @@ function findDonor() {
   let location = document.getElementById("location").value;
   let result = document.getElementById("result");
 
-  if (bloodGroup === "-" || location === "") {
-    alert("Please fill up all the inputs!");
+  if (bloodGroup.trim() === "" && location.trim() === "") {
+    alert("Please fill out both blood group and location!");
+    return;
+  }
+
+  if (bloodGroup.trim() === "") {
+    alert("Please select a blood group!");
+    return;
+  }
+  if (location.trim() === "") {
+    alert("Please enter a location!");
     return;
   }
 
