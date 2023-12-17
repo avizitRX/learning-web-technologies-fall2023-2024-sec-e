@@ -75,6 +75,7 @@ function loginVD() {
 function findDonor() {
   let bloodGroup = document.getElementById("bloodGroup").value;
   let location = document.getElementById("location").value;
+  let result = document.getElementById("result");
 
   if (bloodGroup === "-" || location === "") {
     alert("Please fill up all the inputs!");
@@ -93,7 +94,7 @@ function findDonor() {
   );
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("result").innerHTML = this.responseText;
+      result.innerHTML = this.responseText;
     }
   };
   xhttp.send("bloodGroup=" + bloodGroup + "&" + "location=" + location);

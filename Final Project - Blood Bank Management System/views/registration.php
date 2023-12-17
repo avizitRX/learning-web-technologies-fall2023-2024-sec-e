@@ -1,6 +1,6 @@
 <?php
-  if(isset($_COOKIE['flag'])) {
-    header('location: dashboard.php');
+  if(isset($_COOKIE['user'])) {
+    header('location: home.php');
   }
 
   $msg = $role = $username = $password = $password2 = $name = $email = $address = $mobileNumber = $bloodGroup = "";
