@@ -31,6 +31,19 @@
         return $requestBlood;
     }
 
+    function requestBloodByUserJS($user) {
+        $con = getConnection();
+        $sql = "select * from requestBlood where owner = '{$user}' order by id desc";
+        $result = mysqli_query($con, $sql);
+        $requestBlood = [];
+        
+        while($request = mysqli_fetch_assoc($result)){
+            array_push($requestBlood, $request);
+        }
+        
+        echo json_encode($requestBlood);
+    }
+
     function viewRequestBloodForId($id) {
         $con = getConnection();
         

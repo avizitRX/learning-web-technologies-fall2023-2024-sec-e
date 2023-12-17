@@ -138,26 +138,6 @@ function findDonor() {
   xhttp.send("bloodGroup=" + bloodGroup + "&" + "location=" + location);
 }
 
-function requestBlood() {
-  let bloodGroup = document.getElementById("bloodGroup").value;
-  let location = document.getElementById("location").value;
-  let date = document.getElementById("date").value;
-  let mobileNumber = document.getElementById("mobileNumber").value;
-
-  if (
-    bloodGroup === "-" ||
-    location === "" ||
-    date === "" ||
-    mobileNumber === ""
-  ) {
-    alert("Please fill up all the inputs!");
-    return 0;
-  } else if (isNaN(mobileNumber)) {
-    alert("Mobile Number must have to be numbers!");
-    return 0;
-  }
-}
-
 function editProfile() {
   let name = document.getElementById("name").value;
   let address = document.getElementById("address").value;
