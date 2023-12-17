@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 13, 2023 at 07:23 AM
+-- Generation Time: Dec 17, 2023 at 11:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -76,7 +76,8 @@ CREATE TABLE `requestBlood` (
 INSERT INTO `requestBlood` (`id`, `bloodGroup`, `location`, `date`, `mobileNumber`, `comment`, `owner`) VALUES
 (2, 'O+', 'Evercare Hospital, Dhaka', '2023-11-14', '1446448', 'I need urgent B+ plasma on 14 Nov, 2023 at Evercare Hospital in Dhaka.\r\nIf anyone is available, please contact me using the mobile number given below.\r\n\r\nThanks in advance.                                             ', 'test'),
 (5, 'A+', 'Berlin', '2023-11-21', '131566561', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'test'),
-(8, 'B+', 'Mymensingh', '2023-11-15', '123456789', '                                                                                                                                                                Nulla nulla nisl, accumsan ornare purus at, dignissim finibus enim. Curabitur a neque dictum, maximus magna facilisis, mattis quam. Phasellus ligula erat, pulvinar in convallis ac, dictum vel orci. Aliquam fermentum nec lorem nec eleifend. Proin tincidunt efficitur ipsum, vel volutpat quam commodo a. Phasellus vitae rutrum libero.        ', 'test');
+(8, 'B+', 'Mymensingh', '2023-11-15', '123456789', '                                                                                                                                                                Nulla nulla nisl, accumsan ornare purus at, dignissim finibus enim. Curabitur a neque dictum, maximus magna facilisis, mattis quam. Phasellus ligula erat, pulvinar in convallis ac, dictum vel orci. Aliquam fermentum nec lorem nec eleifend. Proin tincidunt efficitur ipsum, vel volutpat quam commodo a. Phasellus vitae rutrum libero.        ', 'test'),
+(38, 'O+', 'Uttara, Dhaka', '2023-12-14', '4676184845', 'There is an urgent requirement of O+ Blood for daughter of Mr Sudhakar Gupta suffering from Dengue and admitted in Gupta Nursing Home near Paschim Vih', 'recipient');
 
 -- --------------------------------------------------------
 
@@ -149,13 +150,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `requestBlood`
 --
 ALTER TABLE `requestBlood`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
