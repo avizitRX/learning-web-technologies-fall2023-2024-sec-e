@@ -48,7 +48,7 @@
                         <tr>
                             <td>
                             <h4>Confirm Password:</h4></td> 
-                            <td><input type="password" name="cpassword" value="<?php echo $result['cpassword']; ?>" placeholder="Confirm Your Password" required/></td>
+                            <td><input type="password" name="cpassword" value="" placeholder="Confirm Your Password" required/></td>
                         </tr>
                         <tr>
                             <td>
