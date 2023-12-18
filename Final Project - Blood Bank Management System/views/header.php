@@ -25,6 +25,8 @@
             <?php if(isset($_COOKIE['staffFlag'])) { ?>
               <a href="bloodInventory.php">Blood Inventory</a>
             <?php } ?>
+            &nbsp;&nbsp;&nbsp;
+            <a href="bloodFlow.php">Blood Flowing</a>
 
             <!-- &nbsp;&nbsp;
             <a href="#">Contact Us</a> -->

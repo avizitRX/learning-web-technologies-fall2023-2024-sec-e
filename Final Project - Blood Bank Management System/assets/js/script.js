@@ -314,3 +314,42 @@ function showInventory() {
     }
   };
 }
+
+
+
+function updateBloodBag(selectedBloodGroup) {
+  const bloodGroupRelationships = {
+      'O+': ['A+', 'B+', 'AB+', 'O+'],
+      'A+': ['A+', 'AB+'],
+      'B+': ['B+', 'AB+'],
+      'AB+': ['AB+'],
+      'O-': ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-'],
+      'A-': ['A+', 'AB+', 'AB-', 'A-'],
+      'B-': ['B+', 'AB+', 'AB-', 'B-'],
+      'AB-': ['AB+', 'AB-'],
+  };
+
+  const bloodBags = document.querySelectorAll('.blood-bag');
+  bloodBags.forEach(bloodBag => {
+      bloodBag.offsetWidth;
+      bloodBag.classList.remove('selected', 'animate-reset');
+  });
+
+  const selectedBloodBag = document.querySelector(`.blood-bag[data-blood-group="${selectedBloodGroup}"]`);
+  if (selectedBloodBag) {
+      selectedBloodBag.classList.add('selected', 'animate-reset');
+  }
+
+  const recipientBloodGroups = bloodGroupRelationships[selectedBloodGroup];
+  if (recipientBloodGroups) {
+      recipientBloodGroups.forEach(recipientGroup => {
+          const recipientBloodBag = document.querySelector(`.blood-bag[data-blood-group="${recipientGroup}"]`);
+          if (recipientBloodBag) {
+              recipientBloodBag.classList.add('selected', 'animate-reset');
+          }
+      });
+  }
+
+  document.getElementById('selectedBloodGroupDisplay').textContent = `Selected Blood Group: ${selectedBloodGroup}`;
+}
+
