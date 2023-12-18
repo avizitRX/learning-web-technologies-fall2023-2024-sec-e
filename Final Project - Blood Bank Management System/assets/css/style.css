@@ -258,3 +258,103 @@ select {
   /* transform: scale(1.1); */
   box-shadow: 0 1px 10px #ff776d;
 }
+
+/**********/
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.blood-bag-container {
+  position: relative;
+}
+
+.blood-group-selected {
+  border: 2px solid #f44336;
+  padding: 2px;
+  margin: auto;
+}
+
+.main-blood-bag {
+  width: 50px;
+  height: 50px;
+  background-color: #f44336;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50px;
+}
+
+.blood-bag {
+  width: 50px;
+  height: 50px;
+  background-color: #f44336;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50px;
+}
+
+.blood-bag::before,
+.blood-bag::after {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 2px;
+  background-color: #000;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: background-color 0.5s ease, height 0s;
+}
+
+.blood-bag::after {
+  background-color: red;
+  height: 0;
+}
+
+.blood-bags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.blood-bags .blood-bag:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  width: calc(50% - 25px);
+  height: 2px;
+  background-color: #000;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+}
+
+.blood-bag.selected::after {
+  height: 100px;
+}
+
+.blood-bag.selected::before,
+.blood-bag.selected::after {
+  background-color: red;
+  animation: fillRed 2s ease-in-out;
+}
+
+@keyframes fillRed {
+  from {
+      height: 0;
+  }
+
+  to {
+      height: 100px;
+  }
+}
+
+.animate-reset {
+  animation: none;
+}

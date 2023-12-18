@@ -30,6 +30,8 @@
             <?php if(isset($_COOKIE['staffFlag'])) { ?>
               <a href="manageDonor.php">Manage Donor</a>
             <?php } ?>
+            &nbsp;&nbsp;&nbsp;
+            <a href="bloodFlow.php">Blood Flowing</a>
 
             <!-- &nbsp;&nbsp;
             <a href="#">Contact Us</a> -->

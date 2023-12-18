@@ -25,6 +25,15 @@ function register() {
     alert("Please confirm your password");
     return false;
   }
+  if (
+    password.length !== 8 ||
+    !/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password) || 
+    password[0] !== password[0].toUpperCase() || 
+    password.includes(" ") || 
+    !/\d/.test(password)) {
+    alert("Invalid password format! Please follow the specified criteria.");
+    return;
+    }
   if (password !== password2) {
     alert("Passwords do not match");
     return false;
@@ -87,10 +96,11 @@ function findDonor() {
     return;
   }
 
-  if (location === "") {
-    alert("Please enter a location!");
+  if (!/^[a-zA-Z]+$/.test(location)) {
+    alert("Please enter a valid location with letters only!");
     return;
   }
+
 
   let xhttp = new XMLHttpRequest();
   xhttp.open(
@@ -193,9 +203,22 @@ function changePasswordScript() {
   if (oldPassword === "" || password === "" || password2 === "") {
     alert("Please fill up all the inputs!");
     return;
-  } else if (password != password2) {
-    alert("Password didn't match!");
   }
+
+  if (password !== password2) {
+    alert("Password didn't match!");
+    return;
+  }
+
+  if (
+    password.length !== 8 ||
+    !/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password) || 
+    password[0] !== password[0].toUpperCase() || 
+    password.includes(" ") || 
+    !/\d/.test(password)) {
+    alert("Invalid password format! Please follow the specified criteria.");
+    return;
+    }
 }
 
 function addBlood() {
@@ -205,15 +228,29 @@ function addBlood() {
   let mobileNumber = document.getElementById("mobileNumber").value;
   let result = document.getElementById("result");
 
-  if (
-    name === "" ||
-    bloodGroup === "" ||
-    quantity === "" ||
-    mobileNumber === ""
-  ) {
-    alert("All inputs required!");
-    return;
+  let errors = [];
+
+  if (name.trim() === "") {
+      errors.push("Name is required");
   }
+
+  if (bloodGroup.trim() === "") {
+      errors.push("Blood Group is required");
+  }
+
+  if (quantity.trim() === "" || isNaN(quantity) || quantity <= 0) {
+      errors.push("Quantity must be a positive number");
+  }
+
+  if (mobileNumber.trim() === "" || !/^[0-9]{10}$/.test(mobileNumber)) {
+      errors.push("Invalid mobile number format");
+  }
+
+  if (errors.length > 0) {
+      alert(errors.join("\n"));
+      return;
+  }
+
 
   let xhttp = new XMLHttpRequest();
   xhttp.open(
@@ -279,3 +316,42 @@ function showInventory() {
     }
   };
 }
+
+
+
+function updateBloodBag(selectedBloodGroup) {
+  const bloodGroupRelationships = {
+      'O+': ['A+', 'B+', 'AB+', 'O+'],
+      'A+': ['A+', 'AB+'],
+      'B+': ['B+', 'AB+'],
+      'AB+': ['AB+'],
+      'O-': ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-'],
+      'A-': ['A+', 'AB+', 'AB-', 'A-'],
+      'B-': ['B+', 'AB+', 'AB-', 'B-'],
+      'AB-': ['AB+', 'AB-'],
+  };
+
+  const bloodBags = document.querySelectorAll('.blood-bag');
+  bloodBags.forEach(bloodBag => {
+      bloodBag.offsetWidth;
+      bloodBag.classList.remove('selected', 'animate-reset');
+  });
+
+  const selectedBloodBag = document.querySelector(`.blood-bag[data-blood-group="${selectedBloodGroup}"]`);
+  if (selectedBloodBag) {
+      selectedBloodBag.classList.add('selected', 'animate-reset');
+  }
+
+  const recipientBloodGroups = bloodGroupRelationships[selectedBloodGroup];
+  if (recipientBloodGroups) {
+      recipientBloodGroups.forEach(recipientGroup => {
+          const recipientBloodBag = document.querySelector(`.blood-bag[data-blood-group="${recipientGroup}"]`);
+          if (recipientBloodBag) {
+              recipientBloodBag.classList.add('selected', 'animate-reset');
+          }
+      });
+  }
+
+  document.getElementById('selectedBloodGroupDisplay').textContent = `Selected Blood Group: ${selectedBloodGroup}`;
+}
+
