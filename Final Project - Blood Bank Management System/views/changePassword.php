@@ -59,13 +59,13 @@
                       <h2>Change Password</h2>
                       <br><br>
                       Old Password:
-                      <input type="password" name="oldPassword" id="oldPassword" value="" />
+                      <input type="password" name="oldPassword" id="oldPassword" value=""  placeholder="Enter your old password again."/>
                       <br /><br />
                       New Password:
-                      <input type="password" name="password" id="password" value="" />
+                      <input type="password" name="password" id="password" value="" placeholder="First letter must be Uppurcase, lenght more than 8, one special character, one integer."/>
                       <br /><br />
                       Confirm New Password:
-                      <input type="password" name="password2" id="password2" value="" />
+                      <input type="password" name="password2" id="password2" value="" placeholder="Enter your new password again."/>
                       <br /><br />
                       <input
                         type="submit"
