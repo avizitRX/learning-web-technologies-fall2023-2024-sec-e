@@ -86,7 +86,6 @@ function findDonor() {
   let location = document.getElementById("location").value.trim();
   let result = document.getElementById("result");
 
-
   if (bloodGroup === "" && location === "") {
     alert("Please fill out both blood group and location!");
     return;
@@ -297,13 +296,16 @@ function showInventory() {
 
       let output = `
       <tr>
+          <th>Name</th>
           <th>Blood Group</th>
-          <th>Blood Quantity</th>
+          <th>Quantity</th>
         </tr>`;
 
       for (let data of inventory) {
+        console.log(data);
         output += `
             <tr>
+                <td>${data.name}</td>
                 <td>${data.bloodGroup}</td>
                 <td>${data.quantity}</td>
             </tr>
