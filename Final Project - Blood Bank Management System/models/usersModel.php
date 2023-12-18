@@ -179,4 +179,12 @@
 
         return $result;
     }
+
+    function deleteDonor($id) {
+        $conn = getConnection();
+        $query = "DELETE FROM users where id = '$id'";
+        $data = mysqli_query($conn, $query);
+
+        header("location: ../views/manageDonor.php");
+    }
 ?>
