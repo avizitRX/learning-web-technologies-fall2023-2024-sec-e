@@ -4,7 +4,6 @@
     include_once '../controllers/addRequestBloodController.php';
     
     $msg = $bloodGroup = $location = $date = $mobileNumber = $comment = "";
-    $requestBlood = viewRequestBlood($_COOKIE['user']);
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $bloodGroup = $_REQUEST['bloodGroup'];
@@ -24,7 +23,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Blood</title>
-    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/requestBlood.js"></script>
 </head>
 <body>
     <?php include_once 'header.php';?>
@@ -90,42 +89,16 @@
         <tr>
           <td width="25%">&nbsp;</td>
           <td>
-          <?php for($i = 0; $i < count($requestBlood); $i++) { ?>
-            <table border="0" width="100%">
-                <tr>
-                    <td colspan="2"><br /><?=$requestBlood[$i]['comment']?></td>
-                </tr>
-                <tr>
-                    <td>
-                        <br />
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Blood Group: </b><?=$requestBlood[$i]['bloodGroup']?></td>
-                    <td style="text-align: right;"><b>Location: </b><?=$requestBlood[$i]['location']?></td>
-                </tr>
-
-                <tr>
-                    <td><b>Date: </b><?=$requestBlood[$i]['date']?></td>
-                    <td style="text-align: right;"><b>Contact: </b><a href="tel:<?=$requestBlood[$i]['mobileNumber']?>"><?=$requestBlood[$i]['mobileNumber']?></a></td>
-                </tr>
-
-                <tr>
-                    <td colspan="2">
-                        <br>
-                        <a href="editRequestBlood.php?id=<?=$requestBlood[$i]['id']?>"><button class="dlt-btn">Edit</button></a>&nbsp;
-                        <a href="../controllers/deleteRequestBloodController.php?id=<?=$requestBlood[$i]['id']?>"><button class="dlt-btn">Delete</button></a>
-                        <br /><br />
-                    </td>
-                </tr>
-            </table>
-            <hr />
-            <?php } ?>
+            <div id="yourRequests"></div>
         </td>
           <td width="25%">&nbsp;</td>
         </tr>
       </table>
     </section>
     <?php include_once 'footer.php';?>
+
+    <script>
+      yourRequests();
+    </script>
 </body>
 </html>
